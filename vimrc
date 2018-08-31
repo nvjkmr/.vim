@@ -1,10 +1,14 @@
 set backspace+=indent,eol,start      " allow backspacing over everything in insert mode
 
+execute pathogen#infect()
+
 "" Must haves
 
-set encoding=utf-8
+set updatetime=250
 
-set clipboard=unnamed      " Use system clipboard
+set encoding=UTF-8
+
+set hidden                 " have unwritten changes to a file and open a new file
 
 set wrap                   " don't wrap lines
 
@@ -16,17 +20,17 @@ set history=1000           " remember more commands and search history
 
 set undolevels=1000        " use many muchos levels of undo
 
-set wildignore=*.swp,*.bak,*.pyc,*.class
-
+set wildignore=*.swp,*.bak,*.pyc,*.class,*/.cls
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " Linux/MacOSX
-
 set wildignore+=*/vendor/**
-
 set wildignore+=*/node_modules/**
+set wildignore+=*/__pycache__/
 
 set visualbell           " don't beep
 
 set noerrorbells         " don't beep
+
+set nobackup
 
 set noswapfile
 
@@ -35,7 +39,13 @@ cmap w!! w !sudo tee % >/dev/null      " forgot to sudo before editing a file th
 
 "" Colors
 
-colorscheme badwolf        " awesome colorscheme
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+set background=dark
+
+colorscheme space-vim-dark        " awesome colorscheme
 
 syntax enable              " enable syntax highlighting
 
@@ -78,21 +88,28 @@ set ignorecase             " ignore case when searching
 
 set smartcase              " ignore case if search pattern is all lowercase, case-sensitive otherwise
 
-nmap <silent> ,/ :nohlsearch<CR>    " remove hightlight after search
+nmap <silent> ,/ :nohlsearch<CR>
+
 
 "" Folding
 
-set foldenable             " enable folding
+set nofoldenable             " enable folding
 
-set foldlevelstart=10      " all folds closed if set 0 & all open if 99
+set foldmethod=indent
 
-set foldnestmax=10         " maximum number of nested folds allowed
+set foldnestmax=10
 
-set foldmethod=indent      " syntax based folds
+set foldlevel=1
 
-" za opens/closes the fold around the current block,
-" replacing it with space.
-nnoremap <space> za
+" za opens/closes the fold around the current block.
+" There are different methods to fold a document 
+" kindly find it on help (:help foldmethod).
+
+
+"" File specific configurations
+
+filetype plugin indent on         " load filetype-specific indent files
+
 
 "" Movement
 
@@ -100,16 +117,11 @@ nnoremap <space> za
 nnoremap j gj
 nnoremap k gk
 
-" move to beginning/end of line
-nnoremap B ^
-nnoremap E $
-
-" visually selects block of characters last inserted
-nnoremap gV `[v`]
 
 "" Leader shortcuts
 
 let mapleader=","          " leader string is coma
+
 
 "" File explorer
 let g:netrw_liststyle=3
@@ -123,21 +135,12 @@ map <C-k> <C-w><C-k>
 map <C-l> <C-w><C-l>
 
 
-"" Python specific customizations
+" NERDTree
 
-au BufNewFile,BufRead *.py
-    \ set tabstop=4  |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4  |
-    \ set textwidth=79  |
-    \ set expandtab  |
-    \ set autoindent |
-    \ set fileformat=unix
+let NERDTreeShowHidden=1
+map <C-n> :NERDTreeToggle<CR>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
-
-"" HTML, CSS and JS specific customizations
-
-au BufNewFile,BufRead *.js,*.html,*.css
-    \ set tabstop=2  |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2
+"" fzf
+set rtp+=/usr/local/opt/fzf
