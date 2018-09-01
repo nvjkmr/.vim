@@ -123,6 +123,7 @@ filetype plugin indent on         " load filetype-specific indent files
 nnoremap j gj
 nnoremap k gk
 
+nnoremap <C-p> :FZF<CR>
 
 "" File explorer
 let g:netrw_liststyle=3
