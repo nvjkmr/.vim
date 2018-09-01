@@ -2,6 +2,12 @@ set backspace+=indent,eol,start      " allow backspacing over everything in inse
 
 execute pathogen#infect()
 
+
+"" Leader shortcuts
+
+let mapleader=","          " leader string is coma
+
+
 "" Must haves
 
 set updatetime=250
@@ -88,7 +94,7 @@ set ignorecase             " ignore case when searching
 
 set smartcase              " ignore case if search pattern is all lowercase, case-sensitive otherwise
 
-nmap <silent> ,/ :nohlsearch<CR>
+nmap <silent> <Leader>/ :nohlsearch<CR>
 
 
 "" Folding
@@ -116,11 +122,6 @@ filetype plugin indent on         " load filetype-specific indent files
 " move vertically by the visual line without skipping
 nnoremap j gj
 nnoremap k gk
-
-
-"" Leader shortcuts
-
-let mapleader=","          " leader string is coma
 
 
 "" File explorer
@@ -155,12 +156,14 @@ if has("autocmd")
   au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
 endif
 
+
 " NERDTree
 
 let NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
 
 "" fzf
 set rtp+=/usr/local/opt/fzf
