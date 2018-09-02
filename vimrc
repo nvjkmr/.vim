@@ -1,4 +1,4 @@
-set backspace+=indent,eol,start      " allow backspacing over everything in insert mode
+set nocompatible
 
 execute pathogen#infect()
 
@@ -8,7 +8,15 @@ execute pathogen#infect()
 let mapleader=","          " leader string is coma
 
 
+"" Quickly edit/reload the vimrc file
+
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+
 "" Must haves
+
+set backspace=indent,eol,start
 
 set updatetime=250
 
@@ -96,6 +104,7 @@ set smartcase              " ignore case if search pattern is all lowercase, cas
 
 nmap <silent> <Leader>/ :nohlsearch<CR>
 
+vnoremap // y/<C-R>"<CR>   " search for visually select text using '//'
 
 "" Folding
 
@@ -123,9 +132,9 @@ filetype plugin indent on         " load filetype-specific indent files
 nnoremap j gj
 nnoremap k gk
 
-nnoremap <C-p> :FZF<CR>
 
 "" File explorer
+
 let g:netrw_liststyle=3
 
 
@@ -161,15 +170,20 @@ endif
 " NERDTree
 
 let NERDTreeShowHidden=1
+
 map <C-n> :NERDTreeToggle<CR>
+
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 
 "" fzf
+
+nnoremap <C-p> :FZF<CR>
+
 set rtp+=/usr/local/opt/fzf
 
 
 "" auto-pairs
-let g:AutoPairsFlyMode = 1
+
 let g:AutoPairsShortcutFastWrap = '<C-e>'
