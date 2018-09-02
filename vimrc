@@ -168,3 +168,8 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 
 "" fzf
 set rtp+=/usr/local/opt/fzf
+
+
+"" auto-pairs
+let g:AutoPairsFlyMode = 1
+let g:AutoPairsShortcutFastWrap = '<C-e>'
