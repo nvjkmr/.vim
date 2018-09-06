@@ -1,7 +1,9 @@
 set nocompatible
 
 
-source extras/plug.vim
+"" Vim Plug
+
+source $HOME/.vim/extras/plug.vim
 
 
 "" Leader shortcuts
@@ -188,3 +190,8 @@ set rtp+=/usr/local/opt/fzf
 "" auto-pairs
 
 let g:AutoPairsShortcutFastWrap = '<C-e>'
+
+
+"" jedi-vim
+
+let g:jedi#popup_on_dot = 0
