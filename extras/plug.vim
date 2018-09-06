@@ -25,5 +25,8 @@ Plug 'tpope/vim-surround'
 
 Plug 'christoomey/vim-system-copy'
 
+Plug 'davidhalter/jedi-vim'
+
+Plug 'vim-syntastic/syntastic'
 
 call plug#end()
