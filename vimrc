@@ -1,6 +1,7 @@
 set nocompatible
 
-execute pathogen#infect()
+
+source extras/plug.vim
 
 
 "" Leader shortcuts
@@ -34,7 +35,7 @@ set history=1000           " remember more commands and search history
 
 set undolevels=1000        " use many muchos levels of undo
 
-set wildignore=*.swp,*.bak,*.pyc,*.class,*/.cls
+set wildignore=*.swp,*.bak,*/*.pyc,*/*.class,*/.cls
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " Linux/MacOSX
 set wildignore+=*/vendor/**
 set wildignore+=*/node_modules/**
