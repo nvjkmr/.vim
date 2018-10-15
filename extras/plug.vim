@@ -27,6 +27,8 @@ Plug 'christoomey/vim-system-copy'
 
 Plug 'davidhalter/jedi-vim'
 
-Plug 'vim-syntastic/syntastic'
+Plug 'google/vim-searchindex'
+
+Plug 'w0rp/ale'
 
 call plug#end()

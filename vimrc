@@ -19,6 +19,8 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 "" Must haves
 
+set autoread
+
 set backspace=indent,eol,start
 
 set updatetime=250
@@ -135,6 +137,9 @@ filetype plugin indent on         " load filetype-specific indent files
 nnoremap j gj
 nnoremap k gk
 
+" move up and down in autocomplete list
+" inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+" inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 
 "" File explorer
 
@@ -147,6 +152,9 @@ map <C-h> <C-w><C-h>
 map <C-j> <C-w><C-j>
 map <C-k> <C-w><C-k>
 map <C-l> <C-w><C-l>
+
+
+"" Changing cursor shape on insert mode
 
 if has("unix")
   let s:uname = system("uname")
@@ -170,11 +178,11 @@ if has("autocmd")
 endif
 
 
-" NERDTree
-
-let NERDTreeShowHidden=1
+"" NERDTree
 
 map <C-n> :NERDTreeToggle<CR>
+"" let NERDTreeMapOpenInTab='\r'
+nmap ,f :NERDTreeFind<CR>
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
@@ -189,9 +197,20 @@ set rtp+=/usr/local/opt/fzf
 
 "" auto-pairs
 
+let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutFastWrap = '<C-e>'
 
 
 "" jedi-vim
 
 let g:jedi#popup_on_dot = 0
+
+
+"" ALE
+
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+let g:ale_completion_enabled = 1
+
+let b:ale_linters = {'python': ['pylint']}
+let b:ale_fixers = {'python': ['autopep8'], 'javascript': ['prettier', 'eslint']}
