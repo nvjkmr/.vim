@@ -29,6 +29,8 @@ Plug 'davidhalter/jedi-vim'
 
 Plug 'google/vim-searchindex'
 
+Plug 'kshenoy/vim-signature'
+
 Plug 'w0rp/ale'
 
 call plug#end()

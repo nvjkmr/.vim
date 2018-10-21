@@ -14,6 +14,7 @@ Open your vim and run this command `:PlugInstall` to install all the plugins.
 
 ### Plugins
 Currently, these are the list of plugins I'm using:
+* ale
 * auto-pairs
 * fzf.vim
 * jedi-vim
@@ -24,6 +25,8 @@ Currently, these are the list of plugins I'm using:
 * vim-fugitive
 * vim-gitgutter
 * vim-repeat
+* vim-searchindex
+* vim-signature
 * vim-surround
 * vim-system-copy
 
