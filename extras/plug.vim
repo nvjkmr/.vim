@@ -25,8 +25,6 @@ Plug 'tpope/vim-surround'
 
 Plug 'christoomey/vim-system-copy'
 
-Plug 'davidhalter/jedi-vim'
-
 Plug 'google/vim-searchindex'
 
 Plug 'kshenoy/vim-signature'

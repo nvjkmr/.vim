@@ -39,12 +39,6 @@ set history=1000           " remember more commands and search history
 
 set undolevels=1000        " use many muchos levels of undo
 
-set wildignore=*.swp,*.bak,*/*.pyc,*/*.class,*/.cls
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " Linux/MacOSX
-set wildignore+=*/vendor/**
-set wildignore+=*/node_modules/**
-set wildignore+=*/__pycache__/
-
 set visualbell           " don't beep
 
 set noerrorbells         " don't beep
@@ -52,6 +46,18 @@ set noerrorbells         " don't beep
 set nobackup
 
 set noswapfile
+
+" Balloon Config
+set mouse=a
+set ttymouse=xterm2
+set balloondelay=2500
+set balloonevalterm
+
+set wildignore=*.swp,*.bak,*/*.pyc,*/*.class,*/.cls
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " Linux/MacOSX
+set wildignore+=*/vendor/**
+set wildignore+=*/node_modules/**
+set wildignore+=*/__pycache__/*
 
 cmap w!! w !sudo tee % >/dev/null      " forgot to sudo before editing a file that requires root privileges
 
@@ -181,8 +187,8 @@ endif
 "" NERDTree
 
 map <C-n> :NERDTreeToggle<CR>
-"" let NERDTreeMapOpenInTab='\r'
 nmap ,f :NERDTreeFind<CR>
+let NERDTreeIgnore = ['\.pyc$']
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
@@ -192,7 +198,15 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 
 nnoremap <C-p> :FZF<CR>
 
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow'
 set rtp+=/usr/local/opt/fzf
+
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
 
 "" auto-pairs
@@ -201,16 +215,14 @@ let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutFastWrap = '<C-e>'
 
 
-"" jedi-vim
-
-let g:jedi#popup_on_dot = 0
-
-
 "" ALE
 
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
-let g:ale_completion_enabled = 1
+let g:ale_set_balloons = 1
+let g:ale_completion_max_suggestions = 8
 
-let b:ale_linters = {'python': ['pylint']}
-let b:ale_fixers = {'python': ['autopep8'], 'javascript': ['prettier', 'eslint']}
+let g:ale_linters = {'python': ['pylint', 'pyls']}
+let g:ale_fixers = {'python': ['yapf', 'remove_trailing_lines'], 'javascript': ['prettier', 'eslint']}
+
+let g:ale_completion_enabled = 1
