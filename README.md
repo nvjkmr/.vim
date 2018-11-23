@@ -17,7 +17,6 @@ Currently, these are the list of plugins I'm using:
 * ale
 * auto-pairs
 * fzf.vim
-* jedi-vim
 * nerdtree
 * syntastic
 * vim-commentary

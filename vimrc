@@ -203,7 +203,7 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow'
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
 set rtp+=/usr/local/opt/fzf
 
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
@@ -217,8 +217,8 @@ let g:AutoPairsShortcutFastWrap = '<C-e>'
 
 "" ALE
 
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
+let g:ale_sign_error = '•'
+let g:ale_sign_warning = '°'
 let g:ale_set_balloons = 1
 let g:ale_completion_max_suggestions = 8
 
@@ -226,3 +226,11 @@ let g:ale_linters = {'python': ['pylint', 'pyls']}
 let g:ale_fixers = {'python': ['yapf', 'remove_trailing_lines'], 'javascript': ['prettier', 'eslint']}
 
 let g:ale_completion_enabled = 1
+
+" ALE custom key bindings
+nmap <silent> <leader>aj :ALENext<cr>
+nmap <silent> <leader>ak :ALEPrevious<cr>
+
+nmap <silent> <leader>ad :ALEGoToDefinition<cr>
+nmap <silent> <leader>at :ALEGoToDefinitionInTab<cr>
+nmap <silent> <leader>ar :ALEFindReferences<cr>
