@@ -47,11 +47,14 @@ set nobackup
 
 set noswapfile
 
-" Balloon Config
 set mouse=a
-set ttymouse=xterm2
-set balloondelay=2500
-set balloonevalterm
+
+if !has('nvim')
+    set ttymouse=xterm2
+    " Balloon Config
+    set balloondelay=2500
+    set balloonevalterm
+endif
 
 set wildignore=*.swp,*.bak,*/*.pyc,*/*.class,*/.cls
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " Linux/MacOSX
