@@ -131,7 +131,7 @@ set foldnestmax=10
 set foldlevel=1
 
 " za opens/closes the fold around the current block.
-" There are different methods to fold a document 
+" There are different methods to fold a document
 " kindly find it on help (:help foldmethod).
 
 
@@ -223,12 +223,11 @@ let g:AutoPairsShortcutFastWrap = '<C-e>'
 let g:ale_sign_error = '•'
 let g:ale_sign_warning = '°'
 let g:ale_set_balloons = 1
+let g:ale_completion_enabled = 1
 let g:ale_completion_max_suggestions = 8
 
 let g:ale_linters = {'python': ['pylint', 'pyls']}
 let g:ale_fixers = {'python': ['yapf', 'remove_trailing_lines'], 'javascript': ['prettier', 'eslint']}
-
-let g:ale_completion_enabled = 1
 
 " ALE custom key bindings
 nmap <silent> <leader>aj :ALENext<cr>
@@ -237,3 +236,10 @@ nmap <silent> <leader>ak :ALEPrevious<cr>
 nmap <silent> <leader>ad :ALEGoToDefinition<cr>
 nmap <silent> <leader>at :ALEGoToDefinitionInTab<cr>
 nmap <silent> <leader>ar :ALEFindReferences<cr>
+
+
+"" Airline
+
+let g:airline_extensions = ['ale', 'branch', 'csv', 'tabline', 'virtualenv']
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'

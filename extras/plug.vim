@@ -1,8 +1,8 @@
 call plug#begin('~/.vim/plugged')
 
+Plug 'w0rp/ale'
 
-" On-demand loading
-Plug 'scrooloose/nerdtree', {'on':  'NERDTreeToggle'}
+Plug 'scrooloose/nerdtree', {'on':  'NERDTreeToggle'} " On-demand loading
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -27,6 +27,6 @@ Plug 'google/vim-searchindex'
 
 Plug 'kshenoy/vim-signature'
 
-Plug 'w0rp/ale'
+Plug 'vim-airline/vim-airline'
 
 call plug#end()
