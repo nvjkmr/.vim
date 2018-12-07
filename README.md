@@ -17,9 +17,10 @@ Open your vim and run this command `:PlugInstall` to install all the plugins.
 Currently, these are the list of plugins I'm using:
 * ALE
 * auto-pairs
+* csv.vim
 * fzf.vim
 * nerdtree
-* syntastic
+* vim-airline
 * vim-commentary
 * vim-fubitive
 * vim-fugitive

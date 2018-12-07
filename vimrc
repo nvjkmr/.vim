@@ -163,6 +163,13 @@ map <C-k> <C-w><C-k>
 map <C-l> <C-w><C-l>
 
 
+"" Custom Shortcuts
+
+nnoremap <S-b> ^
+nnoremap <S-e> $
+iabbrev iipdb import ipdb; ipdb.set_trace()
+
+
 "" Changing cursor shape on insert mode
 
 if has("unix")
@@ -218,6 +225,16 @@ let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutFastWrap = '<C-e>'
 
 
+"" Airline
+
+let g:airline_extensions = ['ale', 'branch', 'csv', 'hunks', 'tabline', 'virtualenv']
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_section_x = ''
+let g:airline_section_y = ''
+
+
 "" ALE
 
 let g:ale_sign_error = '•'
@@ -226,20 +243,17 @@ let g:ale_set_balloons = 1
 let g:ale_completion_enabled = 1
 let g:ale_completion_max_suggestions = 8
 
+" Move up and down in autocomplete with <C-j> and <C-k>
+inoremap <expr> <C-j> ("\<C-n>")
+inoremap <expr> <C-k> ("\<C-p>")
+
 let g:ale_linters = {'python': ['pylint', 'pyls']}
 let g:ale_fixers = {'python': ['yapf', 'remove_trailing_lines'], 'javascript': ['prettier', 'eslint']}
 
 " ALE custom key bindings
+nmap <silent> <leader>ax :ALEFix<cr>
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
-
+nmap <silent> <leader>ar :ALEFindReferences<cr>
 nmap <silent> <leader>ad :ALEGoToDefinition<cr>
 nmap <silent> <leader>at :ALEGoToDefinitionInTab<cr>
-nmap <silent> <leader>ar :ALEFindReferences<cr>
-
-
-"" Airline
-
-let g:airline_extensions = ['ale', 'branch', 'csv', 'tabline', 'virtualenv']
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'

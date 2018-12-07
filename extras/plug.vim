@@ -2,6 +2,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'w0rp/ale'
 
+Plug 'chrisbra/csv.vim'
+
 Plug 'scrooloose/nerdtree', {'on':  'NERDTreeToggle'} " On-demand loading
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
