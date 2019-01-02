@@ -31,4 +31,8 @@ Plug 'kshenoy/vim-signature'
 
 Plug 'vim-airline/vim-airline'
 
+Plug 'xolox/vim-notes'
+
+Plug 'xolox/vim-misc'
+
 call plug#end()

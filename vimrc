@@ -14,6 +14,7 @@ let mapleader=","          " leader string is coma
 "" Quickly edit/reload the vimrc file
 
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>ez :e ~/.zshrc<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 
@@ -240,8 +241,7 @@ let g:airline_section_y = ''
 let g:ale_sign_error = '•'
 let g:ale_sign_warning = '°'
 let g:ale_set_balloons = 1
-let g:ale_completion_enabled = 1
-let g:ale_completion_max_suggestions = 8
+let g:ale_completion_enabled = 0
 
 " Move up and down in autocomplete with <C-j> and <C-k>
 inoremap <expr> <C-j> ("\<C-n>")
@@ -252,8 +252,14 @@ let g:ale_fixers = {'python': ['yapf', 'remove_trailing_lines'], 'javascript': [
 
 " ALE custom key bindings
 nmap <silent> <leader>ax :ALEFix<cr>
+nmap <silent> <leader>al :ALELint<cr>
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
 nmap <silent> <leader>ar :ALEFindReferences<cr>
 nmap <silent> <leader>ad :ALEGoToDefinition<cr>
 nmap <silent> <leader>at :ALEGoToDefinitionInTab<cr>
+
+
+"" Vim Notes
+
+let g:notes_directories = ['~/Documents/Notes']
