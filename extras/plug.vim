@@ -2,8 +2,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'w0rp/ale'
 
-Plug 'chrisbra/csv.vim'
-
 Plug 'scrooloose/nerdtree', {'on':  'NERDTreeToggle'} " On-demand loading
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -34,5 +32,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'xolox/vim-notes'
 
 Plug 'xolox/vim-misc'
+
+Plug 'godlygeek/tabular'
+
+Plug 'mhinz/vim-startify'
 
 call plug#end()

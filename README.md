@@ -19,9 +19,9 @@ Please go through [fzf docs](https://github.com/junegunn/fzf#installation) for i
 Currently, these are the list of plugins I'm using:
 * ALE
 * auto-pairs
-* csv.vim
 * fzf.vim
 * nerdtree
+* tabular
 * vim-airline
 * vim-commentary
 * vim-fubitive

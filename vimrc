@@ -54,7 +54,6 @@ if !has('nvim')
     set ttymouse=xterm2
     " Balloon Config
     set balloondelay=2500
-    set balloonevalterm
 endif
 
 set wildignore=*.swp,*.bak,*/*.pyc,*/*.class,*/.cls
@@ -85,9 +84,9 @@ set tabstop=4              " visualization of spaces in a tab
 
 set softtabstop=3          " number of spaces in tab when editing
 
-set expandtab              " tabs are interpreted as spaces
-
 set shiftwidth=4           " number of spaces to use for autoindenting
+
+set expandtab              " tabs are interpreted as spaces
 
 set shiftround             " use multiple of shiftwidth when indenting with '<' and '>'
 
@@ -228,7 +227,7 @@ let g:AutoPairsShortcutFastWrap = '<C-e>'
 
 "" Airline
 
-let g:airline_extensions = ['ale', 'branch', 'csv', 'hunks', 'tabline', 'virtualenv']
+let g:airline_extensions = ['ale', 'branch', 'hunks', 'tabline', 'virtualenv']
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
