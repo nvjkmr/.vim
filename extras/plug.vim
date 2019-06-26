@@ -37,4 +37,8 @@ Plug 'godlygeek/tabular'
 
 Plug 'mhinz/vim-startify'
 
+Plug 'terryma/vim-multiple-cursors'
+
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install({'tag':1})}}
+
 call plug#end()
