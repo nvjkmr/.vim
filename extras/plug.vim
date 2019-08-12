@@ -1,7 +1,5 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'w0rp/ale'
-
 Plug 'scrooloose/nerdtree', {'on':  'NERDTreeToggle'} " On-demand loading
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -38,7 +36,5 @@ Plug 'godlygeek/tabular'
 Plug 'mhinz/vim-startify'
 
 Plug 'terryma/vim-multiple-cursors'
-
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install({'tag':1})}}
 
 call plug#end()
