@@ -1,9 +1,10 @@
 set nocompatible
 
 
-"" Vim Plug
+"" Extras
 
 source $HOME/.vim/extras/plug.vim
+source $HOME/.vim/extras/coc.vim
 
 
 "" Leader shortcuts
@@ -21,6 +22,8 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 "" Must haves
 
 set autoread
+
+set autowrite
 
 set backspace=indent,eol,start
 
@@ -235,39 +238,18 @@ let g:airline_section_x = ''
 let g:airline_section_y = ''
 
 
-"" ALE
-
-let g:ale_sign_error = '•'
-let g:ale_sign_warning = '°'
-let g:ale_set_balloons = 1
-let g:ale_completion_enabled = 0
-
-" Move up and down in autocomplete with <C-j> and <C-k>
-inoremap <expr> <C-j> ("\<C-n>")
-inoremap <expr> <C-k> ("\<C-p>")
-
-let g:ale_linters = {'python': ['pylint', 'pyls']}
-let g:ale_fixers = {'python': ['yapf', 'remove_trailing_lines'], 'javascript': ['prettier', 'eslint']}
-
-" ALE custom key bindings
-nmap <silent> <leader>ax :ALEFix<cr>
-nmap <silent> <leader>al :ALELint<cr>
-nmap <silent> <leader>aj :ALENext<cr>
-nmap <silent> <leader>ak :ALEPrevious<cr>
-nmap <silent> <leader>ar :ALEFindReferences<cr>
-nmap <silent> <leader>ad :ALEGoToDefinition<cr>
-nmap <silent> <leader>at :ALEGoToDefinitionInTab<cr>
-
-
 "" Vim Notes
 
 let g:notes_directories = ['~/Documents/Notes']
 
 
 "" Vim Multi-Cursor
+
 let g:multi_cursor_use_default_mapping=0
 
+
 " Default mapping
+
 let g:multi_cursor_start_word_key      = '<C-m>'
 let g:multi_cursor_select_all_word_key = '<A-m>'
 let g:multi_cursor_start_key           = 'g<C-m>'
@@ -276,3 +258,11 @@ let g:multi_cursor_next_key            = '<C-m>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>' 
+
+
+"" Vim Go
+let g:go_list_type = "quickfix"
+let g:go_def_mapping_enabled = 0
+
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)

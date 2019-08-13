@@ -2,6 +2,10 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', {'on':  'NERDTreeToggle'} " On-demand loading
 
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
