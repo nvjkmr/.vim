@@ -17,13 +17,15 @@ export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 #### Install some additional tools:
 
 1. [fzf docs](https://github.com/junegunn/fzf#installation) - Install and change install path in `extras/plug.vim` & runtime path in `vimrc` (if required).
-2. [ripgrep docs](https://github.com/BurntSushi/ripgrep#installation) - Instal ripgrep for the `:Rg` command.
-3. [gopls wiki](https://github.com/golang/go/wiki/gopls#installation) - Install & [integrate with coc.nvim](https://github.com/golang/go/wiki/gopls#integration-with-your-text-editor).
+2. [ripgrep docs](https://github.com/BurntSushi/ripgrep#installation) - Install ripgrep for the `:Rg` command.
+3. [the silver searcher docs](https://github.com/ggreer/the_silver_searcher#the-silver-searcher) - Install `the_silver_searcher` for the `:Ag` command.
+3. [gopls wiki](https://github.com/golang/go/wiki/gopls#installation) - Install LSP server & [integrate with LSP client](https://github.com/golang/go/wiki/gopls#integration-with-your-text-editor) (coc.nvim in our case).
 
 **NOTE**: Open your vim and run this command `:PlugInstall` to install all the plugins (in `~/.vim/plugged/` directory).
 
 ### Plugins
 Currently, these are the list of plugins I'm using:
+* ack.vim
 * auto-pairs
 * coc.nvim
 * fzf.vim
@@ -44,4 +46,4 @@ Currently, these are the list of plugins I'm using:
 * vim-surround
 * vim-system-copy
 
-**P.S.**: I recently switched to Golang, hence configured mostly for it. You might still find some traces of config done for Python; please ignore them.
+**P.S.**: I recently switched to Golang, hence configured mostly for it. You might still find some traces of config done for Python.

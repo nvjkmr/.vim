@@ -37,6 +37,8 @@ Plug 'godlygeek/tabular'
 
 Plug 'mhinz/vim-startify'
 
+Plug 'mileszs/ack.vim'
+
 Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
