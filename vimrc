@@ -170,7 +170,7 @@ map <C-l> <C-w><C-l>
 
 nnoremap <S-b> ^
 nnoremap <S-e> $
-iabbrev iipdb import ipdb; ipdb.set_trace()
+tnoremap <Esc> <C-\><C-n>
 
 
 "" Changing cursor shape on insert mode
@@ -200,23 +200,26 @@ endif
 "" NERDTree
 
 map <C-n> :NERDTreeToggle<CR>
-nmap ,f :NERDTreeFind<CR>
+nmap <leader>f :NERDTreeFind<CR>
 let NERDTreeIgnore = ['\.pyc$']
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
+command FormatJSON execute '%!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), indent=2)"'
 
 "" fzf
 
 nnoremap <C-p> :FZF<CR>
+autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-set rtp+=/usr/local/opt/fzf
+set rtp+=~/.apps/fzf/bin/fzf
+
 
 "" Rg and Ag
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
@@ -268,6 +271,7 @@ let g:multi_cursor_quit_key            = '<Esc>'
 
 "" Vim Go
 let g:go_list_type = "quickfix"
+let g:go_fmt_command = "goimports"
 let g:go_def_mapping_enabled = 0
 
 autocmd FileType go nmap <leader>b  <Plug>(go-build)

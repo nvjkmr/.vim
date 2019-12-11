@@ -6,7 +6,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
-Plug '/usr/local/opt/fzf'  " fzf installation path - change if required
+Plug 'junegunn/fzf', { 'dir': '~/.apps/fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'tpope/vim-fugitive'
