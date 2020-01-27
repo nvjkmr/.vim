@@ -4,7 +4,7 @@ Plug 'scrooloose/nerdtree', {'on':  'NERDTreeToggle'} " On-demand loading
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'junegunn/fzf', { 'dir': '~/.apps/fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -38,7 +38,5 @@ Plug 'godlygeek/tabular'
 Plug 'mhinz/vim-startify'
 
 Plug 'mileszs/ack.vim'
-
-Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()

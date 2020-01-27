@@ -1,7 +1,7 @@
 set nocompatible
 
 
-"" Extras
+"" Imports
 
 source $HOME/.vim/extras/plug.vim
 source $HOME/.vim/extras/coc.vim
@@ -51,7 +51,7 @@ set nobackup
 
 set noswapfile
 
-set mouse=a
+set mouse=c
 
 if !has('nvim')
     set ttymouse=xterm2
@@ -64,8 +64,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " Linux/MacOSX
 set wildignore+=*/vendor/**
 set wildignore+=*/node_modules/**
 set wildignore+=*/__pycache__/*
-
-cmap w!! w !sudo tee % >/dev/null      " forgot to sudo before editing a file that requires root privileges
 
 
 "" Colors
@@ -123,6 +121,7 @@ nmap <silent> <Leader>/ :nohlsearch<CR>
 
 vnoremap // y/<C-R>"<CR>   " search for visually select text using '//'
 
+
 "" Folding
 
 set nofoldenable             " enable folding
@@ -143,15 +142,18 @@ set foldlevel=1
 filetype plugin indent on         " load filetype-specific indent files
 
 
-"" Movement
+"" Cursor Movement Shortcuts
 
-" move vertically by the visual line without skipping
 nnoremap j gj
 nnoremap k gk
+nnoremap <S-b> ^
+nnoremap <S-e> $
+tnoremap <Esc> <C-\><C-n>
 
 " move up and down in autocomplete list
 " inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
 " inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+
 
 "" File explorer
 
@@ -164,13 +166,6 @@ map <C-h> <C-w><C-h>
 map <C-j> <C-w><C-j>
 map <C-k> <C-w><C-k>
 map <C-l> <C-w><C-l>
-
-
-"" Custom Shortcuts
-
-nnoremap <S-b> ^
-nnoremap <S-e> $
-tnoremap <Esc> <C-\><C-n>
 
 
 "" Changing cursor shape on insert mode
@@ -206,22 +201,32 @@ let NERDTreeIgnore = ['\.pyc$']
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
-command FormatJSON execute '%!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), indent=2)"'
+if !exists(":FormatJSON")
+    command FormatJSON execute '%!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), indent=2)"'
+endif
+
 
 "" fzf
 
 nnoremap <C-p> :FZF<CR>
 autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
 
+
+"" json syntax highlight
+
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
+  \ 'ctrl-v': 'vsplit'
+  \ }
 
 set rtp+=~/.apps/fzf/bin/fzf
 
 
-"" Rg and Ag
+"" Rg and Fzf
+
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
 
 if executable('ag')
@@ -239,7 +244,7 @@ let g:AutoPairsShortcutFastWrap = '<C-e>'
 
 "" Airline
 
-let g:airline_extensions = ['ale', 'branch', 'hunks', 'tabline', 'virtualenv']
+let g:airline_extensions = ['branch', 'hunks', 'tabline', 'virtualenv']
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
@@ -247,34 +252,8 @@ let g:airline_section_x = ''
 let g:airline_section_y = ''
 
 
-"" Vim Notes
-
-let g:notes_directories = ['~/Documents/Notes']
-
-
-"" Vim Multi-Cursor
-
-let g:multi_cursor_use_default_mapping=0
-
-
-" Default mapping
-
-let g:multi_cursor_start_word_key      = '<C-m>'
-let g:multi_cursor_select_all_word_key = '<A-m>'
-let g:multi_cursor_start_key           = 'g<C-m>'
-let g:multi_cursor_select_all_key      = 'g<A-m>'
-let g:multi_cursor_next_key            = '<C-m>'
-let g:multi_cursor_prev_key            = '<C-p>'
-let g:multi_cursor_skip_key            = '<C-x>'
-let g:multi_cursor_quit_key            = '<Esc>' 
-
-
 "" Vim Go
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_list_type = "quickfix"
-let g:go_fmt_command = "goimports"
 let g:go_def_mapping_enabled = 0
-
-autocmd FileType go nmap <leader>b  <Plug>(go-build)
-autocmd FileType go nmap <leader>r  <Plug>(go-run)
