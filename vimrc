@@ -201,8 +201,10 @@ let NERDTreeIgnore = ['\.pyc$']
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
+
+"" JSON format
 if !exists(":FormatJSON")
-    command FormatJSON execute '%!python -c "import json, sys, collections; print json.dumps(json.load(sys.stdin, object_pairs_hook=collections.OrderedDict), indent=2)"'
+    command FormatJSON execute '%!jq .'
 endif
 
 
