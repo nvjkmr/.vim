@@ -12,6 +12,7 @@
     "folder": "",
     "default": ""
   },
+  "codeLens.enable": true,
   "diagnostic.signOffset": 9999999,
   "diagnostic.errorSign": "●",
   "diagnostic.warningSign": "●",

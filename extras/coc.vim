@@ -1,21 +1,22 @@
-" -------------------------------------------------------------------------------------------------
-" coc.nvim default settings
-" -------------------------------------------------------------------------------------------------
-
 " if hidden is not set, TextEdit might fail.
 set hidden
+
 
 " Better display for messages
 set cmdheight=2
 
+
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
+
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 
+
 " always show signcolumns
 set signcolumn=yes
+
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -30,31 +31,27 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
+
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gy <Plug>(coc-type-definition)
 
-" Use U to show documentation in preview window
-nnoremap <silent> U :call <SID>show_documentation()<CR>
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+" Jump errors
+nmap <silent> <leader>s <Plug>(coc-diagnostic-info)
+nmap <silent> <leader>j <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>k <Plug>(coc-diagnostic-next)
+
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
-" Remap for format selected region
-vmap <leader>f  <Plug>(coc-format-selected)
 
 "" Auto format and fix imports on save
 autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
