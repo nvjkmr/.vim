@@ -38,7 +38,6 @@ Currently, these are the list of plugins I'm using:
 * vim-gitgutter
 * vim-go
 * vim-misc
-* vim-multiple-cursors
 * vim-repeat
 * vim-searchindex
 * vim-signature

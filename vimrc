@@ -241,7 +241,7 @@ let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %
 "" auto-pairs
 
 let g:AutoPairsFlyMode = 0
-let g:AutoPairsShortcutFastWrap = '<C-e>'
+let g:AutoPairsShortcutFastWrap = '<A-e>'
 
 
 "" Airline
