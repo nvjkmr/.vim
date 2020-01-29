@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree', {'on':  'NERDTreeToggle'} " On-demand loading
+Plug 'scrooloose/nerdtree'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
@@ -36,7 +36,5 @@ Plug 'xolox/vim-misc'
 Plug 'godlygeek/tabular'
 
 Plug 'mhinz/vim-startify'
-
-Plug 'mileszs/ack.vim'
 
 call plug#end()
