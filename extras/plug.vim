@@ -2,6 +2,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
 
+Plug 'ryanoasis/vim-devicons'
+
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -36,5 +38,7 @@ Plug 'xolox/vim-misc'
 Plug 'godlygeek/tabular'
 
 Plug 'mhinz/vim-startify'
+
+Plug 'uber/prototool', { 'rtp':'vim/prototool' }
 
 call plug#end()

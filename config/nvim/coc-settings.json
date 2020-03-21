@@ -3,7 +3,8 @@
   "suggest.triggerAfterInsertEnter": false,
   "suggest.snippetIndicator": "",
   "suggest.timeout": 500,
-  "suggest.triggerCompletionWait": 100,
+  "suggest.triggerCompletionWait": 60,
+  "suggest.minTriggerInputLength": 3,
   "suggest.completionItemKindLabels": {
     "operator": "Ψ",
     "function": "⨕",
@@ -37,6 +38,19 @@
         "fuzzyMatching": true,
         "caseSensitiveCompletion": true
       }
+    },
+    "protobuf": {
+      "command": "prototool",
+      "args": [
+        "lint"
+      ],
+      "rootPatterns": [
+        "prototool.yml",
+        "prototool.yaml"
+      ],
+      "filetypes": [
+        "proto"
+      ]
     },
     "phplang": {
       "command": "php",
