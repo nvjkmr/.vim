@@ -39,6 +39,8 @@ Plug 'godlygeek/tabular'
 
 Plug 'mhinz/vim-startify'
 
+Plug 'voldikss/vim-floaterm'
+
 Plug 'uber/prototool', { 'rtp':'vim/prototool' }
 
 call plug#end()
