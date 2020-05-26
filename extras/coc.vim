@@ -44,13 +44,14 @@ nmap <silent> gy <Plug>(coc-type-definition)
 
 
 " Jump errors
-nmap <silent> <leader>s <Plug>(coc-diagnostic-info)
-nmap <silent> <leader>j <Plug>(coc-diagnostic-prev)
-nmap <silent> <leader>k <Plug>(coc-diagnostic-next)
+nmap <silent> <Leader>s <Plug>(coc-diagnostic-info)
+nmap <silent> <Leader>j <Plug>(coc-diagnostic-prev)
+nmap <silent> <Leader>k <Plug>(coc-diagnostic-next)
 
 
 " Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+nmap <silent> <Leader>rn <Plug>(coc-rename)
+nmap <silent> <Leader>a <Plug>(coc-codeaction)
 
 
 "" Auto format and fix imports on save

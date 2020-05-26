@@ -1,4 +1,5 @@
 set nocompatible
+set inccommand=nosplit
 
 
 "" Imports

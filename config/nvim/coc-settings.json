@@ -3,7 +3,7 @@
   "suggest.triggerAfterInsertEnter": false,
   "suggest.snippetIndicator": "",
   "suggest.timeout": 500,
-  "suggest.triggerCompletionWait": 60,
+  "suggest.triggerCompletionWait": 100,
   "suggest.minTriggerInputLength": 3,
   "suggest.completionItemKindLabels": {
     "operator": "Ψ",
