@@ -6,8 +6,8 @@ set runtimepath+=~/.config/vim
 
 "" Imports
 
-source $HOME/.vim/extras/plug.vim
-source $HOME/.vim/extras/coc.vim
+source $HOME/.config/vim/extras/plug.vim
+source $HOME/.config/vim/extras/coc.vim
 
 
 "" Leader shortcuts
