@@ -88,9 +88,7 @@
         "--lsp"
       ],
       "rootPatterns": [
-        "*.cabal",
         "stack.yaml",
-        "cabal.project",
         "cabal.config",
         "package.yaml"
       ],
