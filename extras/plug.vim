@@ -8,7 +8,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'junegunn/fzf', { 'dir': '~/.apps/fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/apps/fzf', 'do': './install --xdg --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'tpope/vim-fugitive'
