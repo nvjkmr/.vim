@@ -1,6 +1,6 @@
 set nocompatible
 set inccommand=nosplit
-set viminfo+=n~/.vim/viminfo
+set viminfo+=n~/.cache/vim/viminfo
 set runtimepath+=~/.config/vim
 
 
