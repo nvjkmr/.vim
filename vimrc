@@ -57,9 +57,8 @@ set noswapfile
 set mouse=c
 
 if !has('nvim')
-    set ttymouse=xterm2
-    " Balloon Config
-    set balloondelay=2500
+    set balloondelay=2500     " Balloon Config
+    set termguicolors
 endif
 
 set wildignore=*.swp,*.bak,*/*.pyc,*/*.class,*/.cls
@@ -70,10 +69,6 @@ set wildignore+=*/__pycache__/*
 
 
 "" Colors
-
-if (has("termguicolors"))
-  set termguicolors
-endif
 
 set background=dark
 
