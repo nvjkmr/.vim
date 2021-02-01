@@ -30,11 +30,15 @@ export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 Currently, these are the list of plugins I'm using:
 * auto-pairs
 * coc.nvim
+* direnv.vim
 * fzf.vim
 * nerdtree
+* prototool
 * tabular
 * vim-airline
 * vim-commentary
+* vim-devicons
+* vim-floaterm
 * vim-fubitive
 * vim-fugitive
 * vim-gitgutter

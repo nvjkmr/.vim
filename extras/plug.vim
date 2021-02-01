@@ -41,6 +41,8 @@ Plug 'mhinz/vim-startify'
 
 Plug 'voldikss/vim-floaterm'
 
+Plug 'direnv/direnv.vim'
+
 Plug 'uber/prototool', { 'rtp':'vim/prototool' }
 
 call plug#end()
