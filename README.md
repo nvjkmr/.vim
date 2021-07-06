@@ -21,7 +21,7 @@ export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 1. [fzf docs](https://github.com/junegunn/fzf#installation) - Install and change install path in `extras/plug.vim` & runtime path in `vimrc` (if required).
 2. [ripgrep docs](https://github.com/BurntSushi/ripgrep#installation) - Install ripgrep for the `:Rg` command.
 3. [gopls wiki](https://github.com/golang/go/wiki/gopls#installation) - Install LSP server & [integrate with LSP client](https://github.com/golang/go/wiki/gopls#integration-with-your-text-editor) (coc.nvim in our case).
-4. [coc settings](https://github.com/neoclide/coc.nvim/wiki/Using-the-configuration-file)
+4. [Neovim LSP configuration](https://github.com/neovim/nvim-lspconfig)
 5. Finally check that `:checkhealth` is `OK`.
 
 **NOTE**: Open your vim and run this command `:PlugInstall` to install all the plugins (in `~/.vim/plugged/` directory).
@@ -29,12 +29,14 @@ export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 ### Plugins
 Currently, these are the list of plugins I'm using:
 * auto-pairs
-* coc.nvim
 * direnv.vim
 * fzf.vim
 * nerdtree
+* nvim-compe
+* nvim-lspconfig
 * prototool
 * tabular
+* vim-abolish
 * vim-airline
 * vim-commentary
 * vim-devicons
@@ -42,8 +44,8 @@ Currently, these are the list of plugins I'm using:
 * vim-fubitive
 * vim-fugitive
 * vim-gitgutter
-* vim-go
 * vim-misc
+* vim-rails
 * vim-repeat
 * vim-searchindex
 * vim-signature

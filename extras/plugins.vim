@@ -4,10 +4,6 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'ryanoasis/vim-devicons'
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 Plug 'junegunn/fzf', { 'dir': '~/apps/fzf', 'do': './install --xdg --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -42,6 +38,14 @@ Plug 'mhinz/vim-startify'
 Plug 'voldikss/vim-floaterm'
 
 Plug 'direnv/direnv.vim'
+
+Plug 'tpope/vim-rails'
+
+Plug 'tpope/vim-abolish'
+
+Plug 'hrsh7th/nvim-compe'
+
+Plug 'neovim/nvim-lspconfig'
 
 Plug 'uber/prototool', { 'rtp':'vim/prototool' }
 

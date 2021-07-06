@@ -5,8 +5,9 @@ set runtimepath+=~/.config/vim
 
 
 "" Imports
-source $HOME/.config/vim/extras/plug.vim
-source $HOME/.config/vim/extras/coc.vim
+source $HOME/.config/vim/extras/plugins.vim
+source $HOME/.config/vim/extras/nvim_compe.vim
+source $HOME/.config/vim/extras/nvim_lsp.vim
 
 
 "" Leader shortcuts
@@ -149,7 +150,7 @@ endif
 map <C-n> :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
 let g:NERDTreeWinSize=40
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
@@ -201,10 +202,3 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_section_x = ''
 let g:airline_section_y = ''
-
-
-"" Vim Go
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
-let g:go_list_type = "quickfix"
-let g:go_def_mapping_enabled = 0
