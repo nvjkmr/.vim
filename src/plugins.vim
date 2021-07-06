@@ -1,3 +1,5 @@
+"" Plugins
+
 call plug#begin('~/.config/vim/plugged')
 
 Plug 'scrooloose/nerdtree'

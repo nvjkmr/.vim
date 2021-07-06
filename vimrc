@@ -5,9 +5,15 @@ set runtimepath+=~/.config/vim
 
 
 "" Imports
-source $HOME/.config/vim/extras/plugins.vim
-source $HOME/.config/vim/extras/nvim_compe.vim
-source $HOME/.config/vim/extras/nvim_lsp.vim
+source $HOME/.config/vim/src/plugins.vim    " load all plugins first
+source $HOME/.config/vim/src/ag_rg_fzf.vim
+source $HOME/.config/vim/src/airline.vim
+source $HOME/.config/vim/src/autopairs.vim
+source $HOME/.config/vim/src/devicons.vim
+source $HOME/.config/vim/src/json.vim
+source $HOME/.config/vim/src/nerdtree.vim
+source $HOME/.config/vim/src/nvim_compe.vim
+source $HOME/.config/vim/src/nvim_lsp.vim
 
 
 "" Leader shortcuts
@@ -144,61 +150,3 @@ if has("autocmd")
     \ endif
   au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
 endif
-
-
-"" NERDTree
-map <C-n> :NERDTreeToggle<CR>
-nmap <leader>f :NERDTreeFind<CR>
-let g:NERDTreeWinSize=40
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-
-
-"" Devicons
-if exists("g:loaded_webdevicons")
-	call webdevicons#refresh()
-endif
-
-
-"" JSON format
-if !exists(":FormatJSON")
-    command FormatJSON execute '%!jq .'
-endif
-
-
-"" json syntax highlight
-autocmd FileType json syntax match Comment +\/\/.\+$+
-
-
-"" Ag
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-
-
-"" Rg and Fzf
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
-nnoremap <C-p> :FZF<CR>
-autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
-let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
-set rtp+=~/.apps/fzf/bin/fzf
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit'
-  \ }
-
-
-"" auto-pairs
-let g:AutoPairsFlyMode = 0
-let g:AutoPairsShortcutFastWrap = '<A-e>'
-
-
-"" Airline
-let g:airline_extensions = ['branch', 'hunks', 'tabline', 'virtualenv']
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#tab_nr_type = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_section_x = ''
-let g:airline_section_y = ''

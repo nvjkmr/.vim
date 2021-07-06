@@ -1,3 +1,5 @@
+"" Neovim LSP
+
 lua << EOF
 
 require'lspconfig'.pyright.setup{}

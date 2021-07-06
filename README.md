@@ -20,7 +20,7 @@ export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 1. [fzf docs](https://github.com/junegunn/fzf#installation) - Install and change install path in `extras/plug.vim` & runtime path in `vimrc` (if required).
 2. [ripgrep docs](https://github.com/BurntSushi/ripgrep#installation) - Install ripgrep for the `:Rg` command.
-3. [gopls wiki](https://github.com/golang/go/wiki/gopls#installation) - Install LSP server & [integrate with LSP client](https://github.com/golang/go/wiki/gopls#integration-with-your-text-editor) (coc.nvim in our case).
+3. [gopls wiki](https://github.com/golang/go/wiki/gopls#installation) - Install LSP server & [integrate with LSP client](https://github.com/golang/go/wiki/gopls#integration-with-your-text-editor) (Neovim LSP in our case).
 4. [Neovim LSP configuration](https://github.com/neovim/nvim-lspconfig)
 5. Finally check that `:checkhealth` is `OK`.
 

@@ -1,3 +1,5 @@
+"" Nvim Compe
+
 lua << EOF
 
 -- NVIM Compe - auto complete plugin config
