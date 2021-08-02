@@ -4,6 +4,10 @@ set viminfo+=n~/.cache/vim/viminfo
 set runtimepath+=~/.config/vim
 
 
+"" Leader shortcuts
+let mapleader=" "          " leader string is coma
+
+
 "" Imports
 source $HOME/.config/vim/src/plugins.vim    " load all plugins first
 source $HOME/.config/vim/src/ag_rg_fzf.vim
@@ -14,10 +18,6 @@ source $HOME/.config/vim/src/json.vim
 source $HOME/.config/vim/src/nerdtree.vim
 source $HOME/.config/vim/src/nvim_compe.vim
 source $HOME/.config/vim/src/nvim_lsp.vim
-
-
-"" Leader shortcuts
-let mapleader=" "          " leader string is coma
 
 
 "" Must haves
