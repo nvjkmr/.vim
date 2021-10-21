@@ -6,9 +6,12 @@ Vim configuration tweaked for personal comfort. Before you start installing, mak
 
 #### Clone the repository and setup environment:
 ```
-git clone https://github.com/nvkmr/.vim.git ~/
+mkdir ~/.config/vim ~/.config/nvim
+git clone https://github.com/nvkmr/.vim.git ~/.config/vim/
 ln ~/.vim/config/nvim/* ~/.config/nvim/
 
+
+// Go setup [OPTIONAL]:
 go get golang.org/x/tools/gopls@latest  # go language server protocol
 
 export GOPATH="${HOME}/go"
