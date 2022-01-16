@@ -1,3 +1,3 @@
-## $HOME/.config/nvim
+## Neovim
 
-This directory should be copied to respective directory.
+This directory should be copied to `$HOME/.config/nvim`.

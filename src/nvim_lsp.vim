@@ -51,6 +51,15 @@ nvim_lsp.gopls.setup {
   },
 }
 
+-- solargraph
+nvim_lsp.solargraph.setup {
+  on_attach = on_attach,
+  cmd = {"/nix/store/1jny3z8izcxsjl3irhcpx5c2qnxymh7v-ktmr-final-environment/bin/solargraph", "stdio"},
+  flags = {
+    debounce_text_changes = 150,
+  },
+}
+
 -- pyright
 nvim_lsp.pyright.setup {
   on_attach = on_attach,

@@ -9,14 +9,6 @@ Vim configuration tweaked for personal comfort. Before you start installing, mak
 mkdir ~/.config/vim ~/.config/nvim
 git clone https://github.com/nvkmr/.vim.git ~/.config/vim/
 ln ~/.vim/config/nvim/* ~/.config/nvim/
-
-
-// Go setup [OPTIONAL]:
-go get golang.org/x/tools/gopls@latest  # go language server protocol
-
-export GOPATH="${HOME}/go"
-export GOROOT="$(brew --prefix golang)/libexec"
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 ```
 
 #### Install some additional tools:
@@ -25,7 +17,8 @@ export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 2. [ripgrep docs](https://github.com/BurntSushi/ripgrep#installation) - Install ripgrep for the `:Rg` command.
 3. [gopls wiki](https://github.com/golang/go/wiki/gopls#installation) - Install LSP server & [integrate with LSP client](https://github.com/golang/go/wiki/gopls#integration-with-your-text-editor) (Neovim LSP in our case).
 4. [Neovim LSP configuration](https://github.com/neovim/nvim-lspconfig)
-5. Finally check that `:checkhealth` is `OK`.
+5. For [vim-devicons](https://github.com/ryanoasis/vim-devicons) to work, you need to patch your fonts (alternatively find patched fonts at [NerdFonts](https://www.nerdfonts.com/)).
+6. Finally check that `:checkhealth` is `OK`.
 
 **NOTE**: Open your vim and run this command `:PlugInstall` to install all the plugins (in `~/.vim/plugged/` directory).
 
