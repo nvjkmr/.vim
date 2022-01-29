@@ -22,6 +22,21 @@ ln ~/.vim/config/nvim/* ~/.config/nvim/
 
 **NOTE**: Open your vim and run this command `:PlugInstall` to install all the plugins (in `~/.vim/plugged/` directory).
 
+### Key Bindings
+| Action | Shortcut |
+|:-:|:-:|
+| `gd` | Go to definition |
+| `gD` | Go to declaration |
+| `gi` | Go to Implementation |
+| `gr` | Find References |
+| `<space>rn` | Rename |
+| `<space>ca` | Prompt Code Action |
+| `K` | Hover |
+| `<C-k>` | Signature Help |
+| `[d` | Goto Previous Error |
+| `]d` | Goto Next Error |
+| `<space>D` | Type Definition |
+
 ### Plugins
 Currently, these are the list of plugins I'm using:
 * auto-pairs
