@@ -18,6 +18,7 @@ source $HOME/.config/vim/src/json.vim
 source $HOME/.config/vim/src/nerdtree.vim
 source $HOME/.config/vim/src/nvim_compe.vim
 source $HOME/.config/vim/src/nvim_lsp.vim
+source $HOME/.config/vim/src/python_config.vim
 
 
 "" Must haves

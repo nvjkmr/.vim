@@ -6,6 +6,8 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'ryanoasis/vim-devicons'
 
+Plug 'chrisbra/csv.vim'
+
 Plug 'junegunn/fzf', { 'dir': '~/apps/fzf', 'do': './install --xdg --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -48,6 +50,8 @@ Plug 'tpope/vim-abolish'
 Plug 'hrsh7th/nvim-compe'
 
 Plug 'neovim/nvim-lspconfig'
+
+Plug 'tpope/vim-rhubarb'
 
 Plug 'uber/prototool', { 'rtp':'vim/prototool' }
 

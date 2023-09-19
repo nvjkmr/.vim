@@ -28,7 +28,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', '<space>k', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
@@ -52,9 +52,10 @@ nvim_lsp.gopls.setup {
 }
 
 -- solargraph
+local ruby_path = io.popen('which ruby'):read('*a'):gsub("%s+", "")
 nvim_lsp.solargraph.setup {
   on_attach = on_attach,
-  cmd = {"/nix/store/1jny3z8izcxsjl3irhcpx5c2qnxymh7v-ktmr-final-environment/bin/solargraph", "stdio"},
+  cmd = {ruby_path, "stdio"},
   flags = {
     debounce_text_changes = 150,
   },
@@ -70,33 +71,22 @@ nvim_lsp.pyright.setup {
 
 -- goimports function
 function goimports(timeout_ms)
-  local context = { source = { organizeImports = true } }
-  vim.validate { context = { context, "t", true } }
+  timeout_ms = timeout_ms or 1000
 
   local params = vim.lsp.util.make_range_params()
-  params.context = context
-
-  -- See the implementation of the textDocument/codeAction callback
-  -- (lua/vim/lsp/handler.lua) for how to do this properly.
+  params.context = { only = { 'source.organizeImports' } }
   local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
-  if not result or next(result) == nil then return end
-  local actions = result[1].result
-  if not actions then return end
-  local action = actions[1]
-
-  -- textDocument/codeAction can return either Command[] or CodeAction[]. If it
-  -- is a CodeAction, it can have either an edit, a command or both. Edits
-  -- should be executed first.
-  if action.edit or type(action.command) == "table" then
-    if action.edit then
-      vim.lsp.util.apply_workspace_edit(action.edit)
-    end
-    if type(action.command) == "table" then
-      vim.lsp.buf.execute_command(action.command)
-    end
-  else
-    vim.lsp.buf.execute_command(action)
+  for _, res in pairs(result) do
+      for _, r in pairs(res.result or {}) do
+          if r.edit and not vim.tbl_isempty(r.edit) then
+              vim.lsp.util.apply_workspace_edit(r.edit, 'UTF-8')
+          else
+              vim.lsp.buf.execute_command(r.command)
+          end
+      end
   end
+
+  vim.lsp.buf.format({ async = false })
 end
 EOF
 
