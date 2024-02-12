@@ -8,7 +8,7 @@ Vim configuration tweaked for personal comfort. Before you start installing, mak
 ```
 mkdir ~/.config/vim ~/.config/nvim
 git clone https://github.com/nvkmr/.vim.git ~/.config/vim/
-ln ~/.vim/config/nvim/* ~/.config/nvim/
+ln ~/.config/vim/config/nvim/* ~/.config/nvim/
 ```
 
 #### Install some additional tools:
