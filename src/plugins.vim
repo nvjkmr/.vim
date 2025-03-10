@@ -53,6 +53,8 @@ Plug 'neovim/nvim-lspconfig'
 
 Plug 'tpope/vim-rhubarb'
 
+Plug 'github/copilot.vim'
+
 Plug 'uber/prototool', { 'rtp':'vim/prototool' }
 
 call plug#end()

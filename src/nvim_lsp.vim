@@ -55,11 +55,24 @@ nvim_lsp.gopls.setup {
 local ruby_path = io.popen('which ruby'):read('*a'):gsub("%s+", "")
 nvim_lsp.solargraph.setup {
   on_attach = on_attach,
-  cmd = {ruby_path, "stdio"},
+  cmd = { ruby_path, "stdio" },
   flags = {
     debounce_text_changes = 150,
   },
 }
+
+-- standardrb
+vim.opt.signcolumn = "yes" -- otherwise it bounces in and out, not strictly needed though
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "ruby",
+  group = vim.api.nvim_create_augroup("RubyLSP", { clear = true }), -- also this is not /needed/ but it's good practice 
+  callback = function()
+    vim.lsp.start {
+      name = "standard",
+      cmd = { "~/.gem/ruby/3.0.0/bin/standardrb", "--lsp" },
+    }
+  end,
+})
 
 -- pyright
 nvim_lsp.pyright.setup {
@@ -75,20 +88,31 @@ function goimports(timeout_ms)
 
   local params = vim.lsp.util.make_range_params()
   params.context = { only = { 'source.organizeImports' } }
+
+  -- Request code actions
   local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
-  for _, res in pairs(result) do
-      for _, r in pairs(res.result or {}) do
-          if r.edit and not vim.tbl_isempty(r.edit) then
-              vim.lsp.util.apply_workspace_edit(r.edit, 'UTF-8')
-          else
-              vim.lsp.buf.execute_command(r.command)
-          end
-      end
+  
+  if not result then
+    print("No response from LSP for organize imports")
+    return
   end
 
+  -- Iterate through results and apply edits
+  for _, res in pairs(result or {}) do
+    if res and res.result then
+      for _, r in pairs(res.result) do
+        if r.edit and not vim.tbl_isempty(r.edit) then
+          vim.lsp.util.apply_workspace_edit(r.edit, 'UTF-8')
+        elseif r.command then
+          vim.lsp.buf.execute_command(r.command)
+        end
+      end
+    end
+  end
+
+  -- Format the buffer
   vim.lsp.buf.format({ async = false })
 end
 EOF
 
 autocmd BufWritePost *.go lua goimports(500)
-autocmd BufWritePost *.go lua vim.lsp.buf.formatting_sync(nil, 500)
