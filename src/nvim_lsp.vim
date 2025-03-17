@@ -51,27 +51,16 @@ nvim_lsp.gopls.setup {
   },
 }
 
--- solargraph
-local ruby_path = io.popen('which ruby'):read('*a'):gsub("%s+", "")
-nvim_lsp.solargraph.setup {
-  on_attach = on_attach,
-  cmd = { ruby_path, "stdio" },
-  flags = {
-    debounce_text_changes = 150,
+nvim_lsp.ruby_lsp.setup({
+  init_options = {
+    formatter = 'standard',
+    linters = { 'standard' },
   },
-}
-
--- standardrb
-vim.opt.signcolumn = "yes" -- otherwise it bounces in and out, not strictly needed though
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "ruby",
-  group = vim.api.nvim_create_augroup("RubyLSP", { clear = true }), -- also this is not /needed/ but it's good practice 
-  callback = function()
-    vim.lsp.start {
-      name = "standard",
-      cmd = { "~/.gem/ruby/3.0.0/bin/standardrb", "--lsp" },
-    }
-  end,
+  addonSettings = {
+    ["Ruby LSP Rails"] = {
+      enablePendingMigrationsPrompt = false,
+    },
+  },
 })
 
 -- pyright

@@ -40,6 +40,8 @@ ln ~/.config/vim/config/nvim/* ~/.config/nvim/
 ### Plugins
 Currently, these are the list of plugins I'm using:
 * auto-pairs
+* copilot.vim
+* csv.vim
 * direnv.vim
 * fzf.vim
 * nerdtree
@@ -58,6 +60,7 @@ Currently, these are the list of plugins I'm using:
 * vim-misc
 * vim-rails
 * vim-repeat
+* vim-rhubarb
 * vim-searchindex
 * vim-signature
 * vim-startify

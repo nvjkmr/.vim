@@ -47,8 +47,6 @@ Plug 'tpope/vim-rails'
 
 Plug 'tpope/vim-abolish'
 
-Plug 'hrsh7th/nvim-compe'
-
 Plug 'neovim/nvim-lspconfig'
 
 Plug 'tpope/vim-rhubarb'
