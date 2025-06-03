@@ -1,68 +1,89 @@
-# ~/.vim
+# Neovim Configuration
 
-Vim configuration tweaked for personal comfort. Before you start installing, make sure you backup your existing `.vim` directory (if any).
+A modern Neovim configuration based on LazyVim, optimized for Ruby on Rails development. This configuration uses the Lazy package manager for plugin management and provides a powerful, IDE-like experience.
 
-### Installation
+## Features
 
-#### Clone the repository and setup environment:
+- Built on LazyVim framework
+- Optimized for Ruby on Rails development
+- AI assistance with Avante (Copilot Agent Mode)
+- Efficient keybindings with which-key
+
+## Requirements
+
+Before installation, ensure you have:
+
+1. [Neovim 0.8+](https://github.com/neovim/neovim/releases)
+2. [Git](https://git-scm.com/)
+3. [ripgrep](https://github.com/BurntSushi/ripgrep) - For fast file searching
+4. A Nerd Font (https://www.nerdfonts.com/)
+5. Ruby language server: `gem install ruby-lsp`
+6. For debugging: `gem install debug`
+
+## Installation
+
+```bash
+# Backup any existing configuration
+mv ~/.config/nvim ~/.config/nvim.bak
+
+# Clone this configuration
+git clone https://github.com/nvjkmr/.vim.git ~/.config/nvim
+
+# Start Neovim - plugins will be automatically installed on first launch
 ```
-mkdir ~/.config/vim ~/.config/nvim
-git clone https://github.com/nvkmr/.vim.git ~/.config/vim/
-ln ~/.config/vim/config/nvim/* ~/.config/nvim/
-```
 
-#### Install some additional tools:
+## Ruby on Rails Features
 
-1. [fzf docs](https://github.com/junegunn/fzf#installation) - Install and change install path in `extras/plug.vim` & runtime path in `vimrc` (if required).
-2. [ripgrep docs](https://github.com/BurntSushi/ripgrep#installation) - Install ripgrep for the `:Rg` command.
-3. [gopls wiki](https://github.com/golang/go/wiki/gopls#installation) - Install LSP server & [integrate with LSP client](https://github.com/golang/go/wiki/gopls#integration-with-your-text-editor) (Neovim LSP in our case).
-4. [Neovim LSP configuration](https://github.com/neovim/nvim-lspconfig)
-5. For [vim-devicons](https://github.com/ryanoasis/vim-devicons) to work, you need to patch your fonts (alternatively find patched fonts at [NerdFonts](https://www.nerdfonts.com/)).
-6. Finally check that `:checkhealth` is `OK`.
+This configuration includes special support for Ruby on Rails development:
 
-**NOTE**: Open your vim and run this command `:PlugInstall` to install all the plugins (in `~/.vim/plugged/` directory).
+- Full Ruby language support via Treesitter
+- Ruby LSP integration for intelligent code completion and navigation
+- Rails-specific navigation with vim-rails
+- Integrated testing via vim-test
+- Debugging support with DAP
+- Custom AI prompts for Rails development tasks
 
-### Key Bindings
+### Key Bindings for Rails Development
+
 | Action | Shortcut |
-|:-:|:-:|
-| `gd` | Go to definition |
-| `gD` | Go to declaration |
-| `gi` | Go to Implementation |
-| `gr` | Find References |
-| `<space>rn` | Rename |
-| `<space>ca` | Prompt Code Action |
-| `K` | Hover |
-| `<C-k>` | Signature Help |
-| `[d` | Goto Previous Error |
-| `]d` | Goto Next Error |
-| `<space>D` | Type Definition |
+|:-------|:---------|
+| Test nearest | `<leader>tn` |
+| Test file | `<leader>tf` |
+| Test suite | `<leader>ts` |
+| Test last | `<leader>tl` |
+| Visit test file | `<leader>tv` |
+| Find Rails files | `<leader>fr` |
+| Find Models | `<leader>fm` |
+| Find Controllers | `<leader>fc` |
+| Find Views | `<leader>fv` |
 
-### Plugins
-Currently, these are the list of plugins I'm using:
-* auto-pairs
-* copilot.vim
-* csv.vim
-* direnv.vim
-* fzf.vim
-* nerdtree
-* nvim-compe
-* nvim-lspconfig
-* prototool
-* tabular
-* vim-abolish
-* vim-airline
-* vim-commentary
-* vim-devicons
-* vim-floaterm
-* vim-fubitive
-* vim-fugitive
-* vim-gitgutter
-* vim-misc
-* vim-rails
-* vim-repeat
-* vim-rhubarb
-* vim-searchindex
-* vim-signature
-* vim-startify
-* vim-surround
-* vim-system-copy
+## AI Integration (Avante.nvim)
+
+Toggle AI assistant with `<leader>aa`
+
+### Custom Rails prompts
+
+- Explain Rails Code
+- Generate Rails Model
+- Generate Rails Controller
+- Optimize Query
+- Generate Migration
+
+## LSP Features
+
+| Action | Shortcut |
+|:-------|:---------|
+| Go to definition | `gd` |
+| Go to declaration | `gD` |
+| Go to Implementation | `gi` |
+| Find References | `gr` |
+| Rename symbol | `<leader>rn` |
+| Code actions | `<leader>ca` |
+| Hover documentation | `K` |
+| Previous error | `[d` |
+| Next error | `]d` |
+| Debug | `<leader>d` |
+
+## Health Check
+
+Run `:checkhealth` to verify that all components are working correctly.
