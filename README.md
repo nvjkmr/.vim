@@ -6,7 +6,7 @@ A modern Neovim configuration based on LazyVim, optimized for Ruby on Rails deve
 
 - Built on LazyVim framework
 - Optimized for Ruby on Rails development
-- AI assistance with Avante
+- AI assistance with Avante (Copilot Agent Mode)
 - Efficient keybindings with which-key
 
 ## Requirements
@@ -16,7 +16,7 @@ Before installation, ensure you have:
 1. [Neovim 0.8+](https://github.com/neovim/neovim/releases)
 2. [Git](https://git-scm.com/)
 3. [ripgrep](https://github.com/BurntSushi/ripgrep) - For fast file searching
-4. A Nerd Font (recommended: [JetBrains Mono NF](https://www.nerdfonts.com/))
+4. A Nerd Font (https://www.nerdfonts.com/)
 5. Ruby language server: `gem install ruby-lsp`
 6. For debugging: `gem install debug`
 
@@ -27,7 +27,7 @@ Before installation, ensure you have:
 mv ~/.config/nvim ~/.config/nvim.bak
 
 # Clone this configuration
-git clone https://github.com/yourusername/nvim-config.git ~/.config/nvim
+git clone https://github.com/nvjkmr/.vim.git ~/.config/nvim
 
 # Start Neovim - plugins will be automatically installed on first launch
 ```
@@ -57,22 +57,12 @@ This configuration includes special support for Ruby on Rails development:
 | Find Controllers | `<leader>fc` |
 | Find Views | `<leader>fv` |
 
-### Debugging
+## AI Integration (Avante.nvim)
 
-| Action | Shortcut |
-|:-------|:---------|
-| Toggle breakpoint | `<leader>db` |
-| Continue | `<leader>dc` |
-| Terminate | `<leader>dt` |
-| Step over | `<leader>do` |
-| Step into | `<leader>di` |
-| Step out | `<leader>du` |
+Toggle AI assistant with `<leader>aa`
 
-### AI Integration
+### Custom Rails prompts
 
-Toggle AI assistant with `<leader>ai`
-
-Custom Rails prompts:
 - Explain Rails Code
 - Generate Rails Model
 - Generate Rails Controller
@@ -90,10 +80,9 @@ Custom Rails prompts:
 | Rename symbol | `<leader>rn` |
 | Code actions | `<leader>ca` |
 | Hover documentation | `K` |
-| Signature help | `<C-k>` |
 | Previous error | `[d` |
 | Next error | `]d` |
-| Type Definition | `<leader>D` |
+| Debug | `<leader>d` |
 
 ## Health Check
 
