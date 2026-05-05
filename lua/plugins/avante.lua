@@ -50,11 +50,8 @@ return {
     "MunifTanjim/nui.nvim",
     "zbirenbaum/copilot.lua",
 
-    --- optional dependencies
-    "nvim-mini/mini.pick", -- for file_selector provider mini.pick
-    "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-    "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-    "ibhagwan/fzf-lua", -- for file_selector provider fzf
+    "nvim-telescope/telescope.nvim", -- file_finder.provider = telescope
+    "hrsh7th/nvim-cmp", -- autocompletion for avante commands (LazyVim also provides cmp)
     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
     {
       -- support for image pasting
@@ -71,7 +68,6 @@ return {
       },
     },
     {
-      -- Make sure to set this up properly if you have lazy=true
       "MeanderingProgrammer/render-markdown.nvim",
       opts = {
         file_types = { "markdown", "Avante" },
