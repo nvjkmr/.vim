@@ -6,7 +6,6 @@ A modern Neovim configuration based on LazyVim, optimized for Ruby on Rails deve
 
 - Built on LazyVim framework
 - Optimized for Ruby on Rails development
-- AI assistance with Avante (Copilot Agent Mode)
 - Efficient keybindings with which-key
 
 ## Requirements
@@ -41,7 +40,6 @@ This configuration includes special support for Ruby on Rails development:
 - Rails-specific navigation with vim-rails
 - Integrated testing via vim-test
 - Debugging support with DAP
-- Custom AI prompts for Rails development tasks
 
 ### Key Bindings for Rails Development
 
@@ -56,18 +54,6 @@ This configuration includes special support for Ruby on Rails development:
 | Find Models | `<leader>fm` |
 | Find Controllers | `<leader>fc` |
 | Find Views | `<leader>fv` |
-
-## AI Integration (Avante.nvim)
-
-Toggle AI assistant with `<leader>aa`
-
-### Custom Rails prompts
-
-- Explain Rails Code
-- Generate Rails Model
-- Generate Rails Controller
-- Optimize Query
-- Generate Migration
 
 ## LSP Features
 
